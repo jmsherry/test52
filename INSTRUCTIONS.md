@@ -46,6 +46,11 @@ To put it another way, you've told git that this file is part of a group of file
 6. Look on GitHub to see the files are there
 7. Do `git status`. At the top it now tells you the differences between your local and remote. (These don't auto-update. See `git fetch` later...)
 
+## Tidying
+1. Delete the `.gitkeep` file (`rm ./styles/.gitkeep`)
+2. Now do `git status`
+3. Do `git add .` to add everything
+4. Do `git commit -m "Up to date"`
 
 # END OF BASIC GIT CYCLE
 ---
@@ -54,22 +59,25 @@ To put it another way, you've told git that this file is part of a group of file
 ### Staging mistakes
 #### Single file
 1. Make some changes to the `index.html` file
-2. Do `git add`
-3. Do `git status`
-4. Now we decide we don't want to add the file to this commit. Do `git reset index.html`
-5. Do `git status` again
+2. Do `git status`
+3. Do `git add index.html`
+4. Do `git status`
+5. Now we decide we don't want to add the file to this commit. Do `git reset index.html`
+6. Do `git status` again
 
 #### Directory
 1. Create a directory called `scripts`
 2. Add a `main.js` to it
 3. Do `git add scripts`
-4. Do `git reset scripts` *test this*
+4. Do `git reset scripts`
 
 ### Commit Mistakes
 #### Wrong last message
 1. Add the `scripts` directory again
 2. Do `git commit -m "rubbish message"`
-3. Do `git commit --amend -m "better message"`
+3. Do `git log` to see it
+4. Do `git commit --amend -m "better message"`
+5. Do `git log` to see that it changed
 
 #### Removing something accidentally committed
 1. Create a directory called `node_modules` with a `.gitkeep` inside it.
